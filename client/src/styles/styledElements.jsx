@@ -4,7 +4,8 @@ import { FaBars } from 'react-icons/fa';
 
 export const NavBar = styled.nav`
     background: #34a0ff;
-    height: 85px;
+    /* height: 85px; */
+    height: ${props => props.show ? 'auto': '85px'};
     display: flex;
     justify-content : space-between ;
     padding: 0.2rem calc((100vw - 1000px) /2 );
@@ -26,16 +27,21 @@ export const NavMenu = styled.ul`
     display:flex;
     align-items: center;
     list-style-type: none;
-    height: auto;
+    height: auto; 
     @media screen and (max-width: 768px) {
-        display: none;
+        /* display: none; */
+        display: ${props => props.show ? 'block' : 'none'};
     }
 `
 
 export const NavList = styled.li`
     display: flex;
     @media screen and (max-width: 768px) {
-        padding: 2rem 0;
+        line-height: 3rem;
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
     }
 `
 
@@ -50,3 +56,27 @@ export const NavLink = styled(Link)`
         color: #000;
     }
 `
+
+export const FooterCon = styled.footer`
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+`
+
+export const Bars = styled(FaBars)`
+    color: #fff;
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: block;
+        position: absolute;
+        top:0;
+        right: 0;
+        transform: translate(-100%, 100%);
+        cursor: pointer;
+        font-size: 1.8rem;
+    }
+` 
